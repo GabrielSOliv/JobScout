@@ -1,0 +1,39 @@
+JobScout Community
+Copyright 2026 JobScout contributors
+
+Code authored for this project is licensed under Apache License 2.0.
+Third-party code, fonts, data and templates retain their own licenses.
+The Apache license does not grant rights to third-party services, job listings,
+company logos or trademarks.
+
+Portions of the HTML connector design/selectors in
+app/src/main/kotlin/com/jobscout/feature/search/data/HtmlCrawlerSource.kt
+were adapted from strelov1/freehire (MIT), commit
+c95bdbe3ff29f38c161164a1aaec2dc043411699.
+Copyright (c) 2026 freehire contributors.
+Adaptation: Kotlin/Android implementation, local caching, bounded collection,
+normalization and local filtering. Original MIT notice is preserved at
+app/src/main/assets/licenses/Freehire-MIT.txt.
+
+Poppins Regular and SemiBold: Copyright 2020 The Poppins Project Authors.
+SIL Open Font License 1.1, preserved in app/src/main/assets/licenses/Poppins-OFL.txt.
+https://github.com/itfoundry/Poppins
+
+Resume layout reference: FAANGPath Simple Template by FAANGPath,
+Creative Commons Attribution 4.0 International.
+https://www.overleaf.com/latex/templates/faangpath-simple-template/npsfpdqnxmbc
+https://creativecommons.org/licenses/by/4.0/
+Changes: independent Kotlin PdfDocument renderer, editable local model,
+0.3-inch margins, Android system serif, automatic pagination and numbered footer.
+No resume.cls or reference resume content is included. No endorsement is implied.
+The template reference is not relicensed under Apache 2.0.
+
+Geographic resource: IBGE municipalities and states, with source, collection date
+and checksum in domain/src/main/resources/brazil-municipalities-SOURCE.txt.
+
+UI artwork for this edition: radar emblem, opportunity radar and launcher icon
+authored directly as Compose/Android vectors. No reference screenshots or generated
+briefcase bitmap are distributed with this edition. Palette: blue and teal.
+
+Transitive dependencies and their notices are listed in THIRD_PARTY_NOTICES.md
+and app/src/main/assets/licenses/. They retain their applicable licenses.

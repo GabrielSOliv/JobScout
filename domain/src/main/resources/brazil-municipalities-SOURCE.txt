@@ -1,0 +1,7 @@
+Fonte: IBGE - API de localidades, municipios e respectivas UFs.
+https://servicodados.ibge.gov.br/api/docs/localidades
+https://servicodados.ibge.gov.br/api/v1/localidades/municipios
+Obtido em 25/10/2026. 5571 pares municipio/UF, 95387 bytes.
+SHA-256 do TSV UTF-8: 7f5019901624e258e6530f6f01052c709131846361dac0ba6ead52cc8d094c82
+Exportacao local de nomes e UFs para reconhecer localidades publicadas.
+Nao consulta o IBGE em runtime nem envia dados do usuario ao IBGE.

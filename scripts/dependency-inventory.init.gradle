@@ -1,0 +1,26 @@
+import groovy.json.JsonOutput
+import org.gradle.api.artifacts.component.ModuleComponentIdentifier
+
+// Invoke explicitly with -I. Absolute cache paths are written only under ignored build/.
+gradle.projectsEvaluated {
+    def app = gradle.rootProject.project(':app')
+    app.tasks.register('publicationDependencyInventory') {
+        doLast {
+            def config = app.configurations.getByName('releaseRuntimeClasspath')
+            def components = config.incoming.resolutionResult.allComponents
+                .findAll { it.id instanceof ModuleComponentIdentifier }
+                .collect { c -> [group: c.id.group, name: c.id.module, version: c.id.version,
+                    purl: "pkg:maven/${c.id.group}/${c.id.module}@${c.id.version}"] }
+                .sort { a, b -> a.purl <=> b.purl }
+            def artifacts = config.resolvedConfiguration.resolvedArtifacts.collect { a ->
+                [coordinate: a.moduleVersion.id.toString(), file: a.file.absolutePath]
+            }
+            def output = new File(gradle.rootProject.projectDir, 'build/license-audit')
+            output.mkdirs()
+            new File(output, 'inventory.json').setText(JsonOutput.prettyPrint(JsonOutput.toJson([
+                cache: new File(gradle.gradleUserHomeDir, 'caches/modules-2/files-2.1').absolutePath,
+                components: components, artifacts: artifacts])), 'UTF-8')
+            println "Release runtime: ${components.size()} resolved components, ${artifacts.size()} artifacts"
+        }
+    }
+}

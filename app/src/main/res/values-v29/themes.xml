@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.JobScout" parent="Theme.JobScout.Base">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>
